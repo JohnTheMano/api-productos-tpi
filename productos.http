@@ -1,0 +1,93 @@
+###1. Listar categorías
+GET http://127.0.0.1:8000/categorias/
+
+###2. Listar productos
+GET http://127.0.0.1:8000/productos/
+
+###3. Obtener categoría por ID
+GET http://127.0.0.1:8000/categorias/2
+
+###4. Listar categorías nuevamente
+GET http://127.0.0.1:8000/categorias/
+
+###5. Listar productos nuevamente
+GET http://127.0.0.1:8000/productos/
+
+###6. Obtener categoría por ID nuevamente
+GET http://127.0.0.1:8000/categorias/2
+
+###7. Crear categoría
+POST http://127.0.0.1:8000/categorias/ Content-Type: application/json
+
+{ "nombre": "Pruebas REST", "descripcion": "Categoría creada desde productos.http" }
+
+###8. Listar categorías
+GET http://127.0.0.1:8000/categorias/
+
+###9. Actualizar categoría
+PUT http://127.0.0.1:8000/categorias/4 Content-Type: application/json
+
+{ "nombre": "Pruebas REST actualizada", "descripcion": "Categoría modificada desde productos.http" }
+
+###10. Eliminar categoría
+DELETE http://127.0.0.1:8000/categorias/4
+
+###11. Consultar categoría eliminada
+GET http://127.0.0.1:8000/categorias/4
+
+###12. Listar productos
+GET http://127.0.0.1:8000/productos/
+
+###13. Obtener producto por ID
+GET http://127.0.0.1:8000/productos/1
+
+###14. Crear producto
+POST http://127.0.0.1:8000/productos/ Content-Type: application/json
+
+{ "nombre": "Mouse inalámbrico", "descripcion": "Mouse para uso académico", "precio_base": 25000, "imagenes_url": [ "https://ejemplo.com/mouse.jpg", "https://ejemplo.com/mouse-lateral.jpg" ], "disponible": true }
+
+###15. Actualizar producto
+PUT http://127.0.0.1:8000/productos/1 Content-Type: application/json
+
+{ "nombre": "Notebook Lenovo", "descripcion": "Notebook para estudiar y programar", "precio_base": 920000, "imagenes_url": [ "https://ejemplo.com/notebook-lenovo.jpg" ], "disponible": true }
+
+###16. Asociar producto con una categoría
+POST http://127.0.0.1:8000/productos/1/categorias Content-Type: application/json
+
+{ "categoria_id": 3 }
+
+###17. Listar categorías asociadas al producto
+GET http://127.0.0.1:8000/productos/1/categorias
+
+###18. Desasociar una categoría del producto
+DELETE http://127.0.0.1:8000/productos/1/categorias/3
+
+###19. Consultar producto inexistente
+GET http://127.0.0.1:8000/productos/99999
+
+###20. Crear producto con precio negativo
+POST http://127.0.0.1:8000/productos/ Content-Type: application/json
+
+{ "nombre": "Producto inválido", "descripcion": "Prueba de validación", "precio_base": -100, "imagenes_url": [], "disponible": true }
+
+###21. Asociar una categoría inexistente
+POST http://127.0.0.1:8000/productos/1/categorias Content-Type: application/json
+
+{ "categoria_id": 99999 }
+
+###22. Eliminar producto inexistente
+DELETE http://127.0.0.1:8000/productos/99999
+
+###23. Consultar categoría inexistente
+GET http://127.0.0.1:8000/categorias/99999
+
+###24. Crear categoría con nombre repetido
+POST http://127.0.0.1:8000/categorias/ Content-Type: application/json
+
+{ "nombre": "Informática", "descripcion": "Prueba de nombre duplicado" }
+
+###25. Eliminar producto
+DELETE http://127.0.0.1:8000/productos/1
+
+###26. Consultar producto eliminado
+GET http://127.0.0.1:8000/productos/1
